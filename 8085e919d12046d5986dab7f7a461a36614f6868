@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48a9ad7e_fd87d8f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000644
+      },
+      "writtenOn": "2022-04-27T06:46:39Z",
+      "side": 1,
+      "message": "For devices which implements device specific Custom Boost Extension\nref:\nhttps://github.com/PixelExperience-Devices/device_xiaomi_vayu/commit/731469d87737069172ccf476a9dbf9a2bd3be145\n",
+      "revId": "8085e919d12046d5986dab7f7a461a36614f6868",
+      "serverId": "8ba0da3e-d57f-4bbe-ac74-faf358ba962a"
+    }
+  ]
+}

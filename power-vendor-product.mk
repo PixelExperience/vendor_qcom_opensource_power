@@ -29,4 +29,8 @@ else ifeq ($(TARGET_BOARD_PLATFORM),parrot)
 PRODUCT_COPY_FILES += vendor/qcom/opensource/power/config/parrot/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 else ifeq ($(TARGET_BOARD_PLATFORM),neo)
 PRODUCT_COPY_FILES += vendor/qcom/opensource/power/config/neo/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+else ifeq ($(TARGET_BOARD_PLATFORM),sdm660)
+ifeq ($(TARGET_KERNEL_VERSION),4.19)
+PRODUCT_COPY_FILES += vendor/qcom/opensource/power/config/sdm660/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
+endif
 endif

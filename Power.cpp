@@ -117,11 +117,17 @@ ndk::ScopedAStatus Power::isModeSupported(Mode type, bool* _aidl_return) {
     }
 #endif
     switch (type) {
+        case Mode::EXPENSIVE_RENDERING:
+            if (is_expensive_rendering_supported()) {
+                *_aidl_return = true;
+            } else {
+                *_aidl_return = false;
+            }
+            break;
 #ifdef TAP_TO_WAKE_NODE
         case Mode::DOUBLE_TAP_TO_WAKE:
 #endif
         case Mode::LAUNCH:
-        case Mode::EXPENSIVE_RENDERING:
         case Mode::INTERACTIVE:
         case Mode::SUSTAINED_PERFORMANCE:
         case Mode::FIXED_PERFORMANCE:
@@ -159,6 +165,17 @@ ndk::ScopedAStatus Power::isBoostSupported(Boost type, bool* _aidl_return) {
             break;
     }
     return ndk::ScopedAStatus::ok();
+}
+
+ndk::ScopedAStatus Power::createHintSession(int32_t, int32_t, const std::vector<int32_t>&, int64_t,
+                                            std::shared_ptr<IPowerHintSession>* _aidl_return) {
+    *_aidl_return = nullptr;
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
+}
+
+ndk::ScopedAStatus Power::getHintSessionPreferredRate(int64_t* outNanoseconds) {
+    *outNanoseconds = -1;
+    return ndk::ScopedAStatus::fromExceptionCode(EX_UNSUPPORTED_OPERATION);
 }
 
 }  // namespace impl
